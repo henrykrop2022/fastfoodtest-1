@@ -13,8 +13,10 @@ pipeline {
         stage("Build & SonarQube Analysis") {
             steps{
                 script{
+                    dir('./fastfood_backend/'){
                   withSonarQubeEnv(credentialsId: 'sonarqube-id') {
                     sh 'mvn sonar:sonar'
+                       }
                     }
                 }
             }
