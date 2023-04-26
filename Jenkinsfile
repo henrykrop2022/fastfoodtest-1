@@ -15,7 +15,7 @@ pipeline {
                 script{
                     dir('./fastfood_backend/'){
                   withSonarQubeEnv('SonarServer') {
-                     sh 'mvn verify sonar:sonar -DskipTests=true'
+                     sh 'mvn verify sonar:sonar'
                        }
                     }
                 }
