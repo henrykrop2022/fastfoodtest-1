@@ -14,8 +14,8 @@ pipeline {
             steps{
                 script{
                     dir('./fastfood_backend/'){
-                  withSonarQubeEnv(credentialsId: 'sonarqube-id') {
-                    sh 'mvn clean verify sonar:sonar'
+                  withSonarQubeEnv('SonarServer') {
+                     sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=henrykrop2022_fastfoodtest-1'
                        }
                     }
                 }
