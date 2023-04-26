@@ -10,5 +10,13 @@ pipeline {
 
             }
         }
+        stage("Build & SonarQube Analysis") {
+            steps{
+                  withSonarQubeEnv(credentialsId: 'sonarqube-id') {
+                sh 'mvn sonar:sonar'
+
+                }
+            }
+        }
     }
 }
