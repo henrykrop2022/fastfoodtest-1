@@ -15,7 +15,9 @@ pipeline {
                 script{
                     dir('./fastfood_backend/'){
                   withSonarQubeEnv(credentialsId: 'sonarqube-id') {
-                    sh 'mvn sonar:sonar'
+                    sh 'mvn clean verify sonar:sonar
+                     -Dsonar.projectKey=fast-food-2 \
+                     -Dsonar.login=fastfood1'
                        }
                     }
                 }
